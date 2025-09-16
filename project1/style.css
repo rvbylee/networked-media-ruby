@@ -1,0 +1,58 @@
+body {
+    background-image: url(windowsbackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+.meIcon {
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+}
+
+
+.folders img {
+    width: 120px;   
+    height: auto;  
+    margin: 10px;   
+}
+
+.folders {
+    text-align: center;  
+    margin-top: 50px;
+}
+
+
+h1 {
+    color: white;
+}
+p {
+    position: fixed;
+    left: 45%;
+    bottom: 40px;
+    color: red;
+    font-size: 25px;
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    left: 1300px
+    
+}
+body.answerPage {
+    background-image: url("trollface.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+}
+
+
+
+
+
+
