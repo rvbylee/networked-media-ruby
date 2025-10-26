@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Your Scribble</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>boop your scribble here</h1>
+
+    <!-- form to submit new artwork -->
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+        <label for="artist">display name:</label><br>
+        <input type="text" id="artist" name="artist" placeholder="something cool" required><br><br>
+
+        <label for="caption">Caption:</label><br>
+        <input type="text" id="caption" name="caption" placeholder="whatever"><br><br>
+
+        <label for="artwork">Upload Image:</label><br>
+        <input type="file" id="artwork" name="artwork" accept="image/*" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>
+
+
