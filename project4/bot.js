@@ -21,7 +21,7 @@ async function retrieveData(){
     //const posts = json.posts
     const posts = [{text: 'Warum ist mein Napf leer? WIESO?!!!!!! Ich rufe die Polizei.'},
         {text: 'Menschen sind nutzlos. Öffnet sofort die Tür.'},
-        {text: 'Ich habe 47 Mal miaut. Keine Antwort. Unacceptable.'},
+        {text: 'Ich habe 47 Mal miaut. Keine Antwort. inakzeptabel.'},
         {text: 'Ich habe Sand in deinem Bett verteilt. Du weißt warum. =(^.^)='},
         {text: 'MIAU MIAU MIAU MIAU MIAU!! miau. MIAU!! miau? MIAU?? miau… MIAUUU— WARUM NIEMAND HÖRT?!?! miau miau miau miau miau miau miau MIAU MIAU MIAU. miau (verärgert). MIAU (wütend). miau (enttäuscht). M I A U !!! miaumiauMIAUmiaumiau miau. miau. miau. MIAU! MIAU! MIAUUUUUUUUUUuuu… miau~~ miau? miau 😾 MIAU MIAU MIAU MIAU MIAU MIAU ICH HABE HUNGER MIAU!!! miau.'},
         {text: 'Heute werde ich Chaos machen. Bin schon wach 😡😡😡😡😡😡😡😡😡'} ]
