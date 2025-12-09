@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Your Scribble</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>boop your scribble here</h1>
+
+    <div class="draw-and-form">
+
+        <div id="p5-holder"></div>
+
+        <!-- form -->
+        <form id="drawingForm" action="/submit" method="POST" enctype="multipart/form-data">
+
+            <label for="artist">display name:</label><br>
+            <input id="artist" name="artist" type="text" placeholder="something cool" required><br><br>
+
+            <label for="caption">caption:</label><br>
+            <input id="caption" name="caption" type="text" placeholder="whatever"><br><br>
+
+            <!-- submit button -->
+            <button id="submitDrawing" type="button">submit drawing</button>
+
+        </form>
+
+    </div>
+    
+    <br><br>
+  
+     <a href="/" class="back-home">
+  <img src="/backtohome.gif" alt="back to home" class="back-home-img">
+</a>
+
+    <script src="/assets/p5.min.js"></script>
+    <script src="/p5.sound.min.js"></script>
+    <script src="/sketch.js"></script>
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var form = document.getElementById("drawingForm");
+        var submitButton = document.getElementById("submitDrawing");
+
+        submitButton.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            var canvas = document.querySelector("#p5-holder canvas");
+
+            if (!canvas) {
+                alert("No drawing on canvas.");
+                return;
+            }
+
+            /* blob */
+            canvas.toBlob(function (blob) {
+
+                if (!blob) {
+                    alert("Could not convert canvas to image.");
+                    return;
+                }
+
+                /* multipart form data */
+                var formData = new FormData(form);
+                formData.append("artwork", blob, "scribble.png");
+
+                fetch("/submit", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(function (response) {
+
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else {
+                        return response.text().then(function (text) {
+                            console.log(text);
+                            window.location.href = "/";
+                        });
+                    }
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("Error submitting drawing.");
+                });
+
+            }, "image/png");
+
+        });
+
+    });
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
