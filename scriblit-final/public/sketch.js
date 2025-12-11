@@ -11,8 +11,8 @@ let heightTextbox;
 let newcanvasW;
 let newcanvasH;
 let newcanvasC;
-let canvasOffsetX = 40;   // how far from the left
-let canvasOffsetY = 120;  // how far from the top (under the title)
+let canvasOffsetX = 40;   
+let canvasOffsetY = 120;  
 
 let brushSize = 2;
 let eraserSize = 2;
@@ -79,7 +79,7 @@ function setup() {
   historyC = createGraphics(width, height);
 
   toolBox = createDiv("Toolbox");
-  // put toolbox in the same container as the canvas
+  // put toolbox in the same container as canvas
   toolBox.parent("p5-holder");
 
   rbrushinfo = createSpan("Size: " + brushSize);
@@ -251,7 +251,6 @@ function areyouDrawingyet() {
   theColorPicker.show();
   newSketch();
   alreadyStarted = true;
-  // new p5(toolbox);
 
   TOOSMALL.hide();
   widthTextbox.hide();
@@ -269,9 +268,9 @@ if (!alreadyStarted) {
   startNew.mousePressed(resetDrawing);
 }
 
-// start over button positioning
-let buttonOffsetX = 260;    // move left (-) or right (+)
-let buttonOffsetY = 10;   // move up (-) or down (+)
+
+let buttonOffsetX = 260;    
+let buttonOffsetY = 10;  
 
 
 let buttonX = canvasOffsetX + buttonOffsetX;
@@ -380,11 +379,6 @@ startNew.position(buttonX, buttonY);
   airbrushButton.child(airbrushIcon);
   airbrushButton.mousePressed(airbrushTool);
   toolBox.child(airbrushButton);
-
-  // menu hiding removed – toolbox should always show now
-  // if (menu === 1) {
-  //   toolBox.hide();
-  // }
 
   decreaseButton = createImg("/icons/button_smaller.png", "");
   decreaseSize = createButton("");
@@ -891,12 +885,4 @@ function doubleClicked() {
   }
 }
 
-function keyPressed() {
-  if (key === "s") {
-    saveCanvas("drawing.png");
-  } else if (keyCode === 49) {
-    growTool();
-  } else if (keyCode === 50) {
-    shrinkTool();
-  }
-}
+

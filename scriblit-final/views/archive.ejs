@@ -5,9 +5,10 @@
   <title>archive dump</title>
   <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <h1>archive dump</h1>
-  <a href="/">back to today</a>
+  <a href="/home">back to today</a>
 
   <!-- if archive key is empty -->
   <% if (Object.keys(grouped).length === 0) { %>
@@ -17,18 +18,26 @@
   <!-- display all past prompts -->
   <% for (let word in grouped) { %>
     <h2><%= word %></h2>
+
     <div class="gallery">
       <% grouped[word].forEach(p => { %>
         <div class="card">
+
           <% if (p.image) { %>
             <img src="<%= p.image %>" alt="artwork">
           <% } %>
+
           <p><strong><%= p.artist %></strong></p>
           <p><%= p.caption %></p>
           <small><%= p.date %></small>
+
         </div>
       <% }) %>
     </div>
+
   <% } %>
+
 </body>
 </html>
+
+

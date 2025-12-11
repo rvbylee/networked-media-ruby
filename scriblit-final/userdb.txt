@@ -1,0 +1,2 @@
+{"username":"ruby","password":"$2b$10$0vOMm.GTzuGBJ6tq11hPoekwibzhEHDJZKjnCssr6lBmvYEomIZtK","profilePic":"/uploads/1e6d75f66d3be92725b2e3993399ff85","_id":"DKlR5yr0CegJ1N7t"}
+{"username":"cutedog123","password":"$2b$10$76lKN00TNw9WZL0OAMD2U.4F/d0/euK7Ms4GCKpj/EHBrzPTiJYSG","profilePic":"/uploads/bf6a4f528038a0f914bc152e8b9ef9b1","_id":"ZENbelHKhiWFTIwG"}

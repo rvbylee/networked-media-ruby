@@ -19,6 +19,31 @@ h1, h2, h3, p, a, small {
 
 /* header nav */
 
+.pfp {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  position: absolute;
+  right: 45px;
+  top: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pfp-popup {
+  position: absolute;
+  right: 20px;
+  top: 120px;          
+  background: white;
+  padding: 10px 14px;
+  border: 2px solid black;
+  font-size: 14px;
+  display: none;    
+  box-shadow: 2px 2px 0 black;
+  z-index: 99;
+}
+
+
 header {
   display: flex;
   justify-content: space-between;
@@ -31,7 +56,9 @@ header {
   height: 60px;
   width: auto;
   display: block;
-  margin: 0 auto;
+  position: relative;   
+  left: -85px;         
+  top: 15px; 
   transform: translateY(15px);
 
 }
@@ -127,8 +154,6 @@ a.submit-icon:hover {
   box-shadow: none !important;
 }
 
-
-
 /* gallery layout */
 .gallery {
   display: grid;
@@ -167,20 +192,6 @@ a.submit-icon:hover {
   text-align: center;
 }
 
-/* button/input sumbit*/ 
-
-button, input[type="submit"] {
-  border: 1px solid black;
-  background: white;
-  padding: 5px 12px;
-  font-family: "Courier New", monospace;
-  cursor: pointer;
-}
-
-button:hover, input[type="submit"]:hover {
-  background: black;
-  color: white;
-}
 
 /*footer*/
 small {
@@ -223,8 +234,8 @@ input[type="text"]:focus {
   outline: none;
 }
 
-button,
-input[type="submit"] {
+
+button, input[type="submit"] {
   border: 1px solid black;
   background: white;
   padding: 5px 12px;
@@ -298,7 +309,7 @@ body::after {
   margin-top: 20px;
 }
 
-/* keep p5 holder aligned left */
+/* keep p5 holder left */
 #p5-holder {
   position: relative;
 }
@@ -309,8 +320,6 @@ body::after {
   margin-right: 40px;
   box-shadow: 2px 2px black;
 }
-
-
 
   /* back to home button gif */
 
@@ -331,3 +340,100 @@ body::after {
 .back-home-img:hover {
   transform: translateY(-3px) rotate(-2deg);
 }
+
+/* landing*/
+
+/* center all */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-logo {
+  width: 750px;  
+  height: auto;
+}
+
+.landing-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 32px;
+}
+
+.landing-btn-img {
+  width: 300px;   
+  height: auto;
+}
+
+.register-link {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.form-container {
+  width: 600px;            
+  margin: 0 auto;          
+  text-align: center;      
+}
+
+
+input::placeholder {
+  font-family: "Courier New", monospace;
+  font-weight: normal;
+}
+
+
+.like-form {
+  display: flex;
+  flex-direction: row;          /* override global column */
+  align-items: center;
+  justify-content: flex-start;  
+  margin: 4px 0 6px 5px;        
+  padding: 0;
+
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: none;
+}
+
+.heart {
+  font-size: 26px;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.1s ease;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}
+
+.like-count {
+  font-size: 18px;
+  margin: 4px 0 6px 5px;
+}
+
+
+
+.register-content-container > *,
+.form-container form > * {
+  margin-bottom: 18px;
+}
+
+.pfp-container {
+  margin-top: 6px;
+}
+
+.landing-page {
+  overflow: hidden;
+}
+
+
+

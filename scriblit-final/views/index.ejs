@@ -5,47 +5,95 @@
   <title>scriblit</title>
   <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
   <header>
     <div class="menu">
-      <a href="/">home</a> /
-      <a href="/submit">submit</a> /
-      <a href="/archive">archive</a>
+      <a href="/home">home</a> /
+      <a href="/my-archive">archive</a> /
+      <a href="/logout">logout</a>
+
+    <% if (typeof loggedInUser !== "undefined" && loggedInUser && loggedInUser.profilePic) { %>
+  <img src="<%= loggedInUser.profilePic %>" class="pfp" id="pfp">
+
+  <!-- popup -->
+  <div id="pfp-popup" class="pfp-popup">
+    hello, <%= loggedInUser.username %> :)
+  </div>
+    <% } %>
+
     </div>
-</nav>
+
     <h1>
-        <img src="/scriblit1.gif" class="logo">
+      <img src="/scriblit1.gif" class="logo">
     </h1>
   </header>
 
   <main>
     <h2>scribble this:</h2>
     <h3><%= wordOfTheDay %></h3>
+
     <p>
-        <a href="/submit" class="submit-icon">
-            <img src="/submit.png" class="default-state">
-            <img src="/sj.png" class="hover-state">
-        </a>
+      <a href="/submit" class="submit-icon">
+        <img src="/clickme.png" class="default-state">
+        <img src="/sj.png" class="hover-state">
+      </a>
     </p>
 
     <div class="gallery">
       <% if (allPosts.length === 0) { %>
-        <p class="empty">no scribbles yet. everyone’s pretending not to see the prompt.</p>
+        <p class="empty">
+          no scribbles yet. everyone’s pretending not to see the prompt.
+        </p>
       <% } else { %>
-        <% allPosts.forEach(p => { %>
-          <div class="card">
-            <% if (p.image) { %>
-              <img src="<%= p.image %>" alt="artwork">
+
+        <% for (let post of allPosts) { %>
+          <div class="card" id="<%= post._id %>">
+
+            <% if (post.image) { %>
+              <img src="<%= post.image %>" alt="artwork">
             <% } else { %>
               <div class="no-image">no image provided</div>
             <% } %>
-            <p><strong><%= p.artist %></strong></p>
-            <p><%= p.caption %></p>
-            <small><%= p.date %></small>
+
+            <form method="POST" action="/like" class="like-form">
+              <input type="submit" value="❤" class="heart">
+              <span class="like-count"><%= post.likes || 0 %></span>
+              <input type="hidden" name="postId" value="<%= post._id %>">
+            </form>
+
+            <p><strong><%= post.artist %></strong></p>
+            <p><%= post.caption %></p>
+            <small><%= post.date %></small>
+
           </div>
-        <% }) %>
+        <% } %>
+
       <% } %>
     </div>
+
   </main>
+
+  <script>
+    const pfp = document.getElementById("pfp");
+    const popup = document.getElementById("pfp-popup");
+
+    if (pfp) {
+      pfp.addEventListener("click", function (event) {
+        event.stopPropagation();
+        popup.style.display =
+          popup.style.display === "block" ? "none" : "block";
+      });
+
+      // hide popup when clicking anywhere else
+      document.addEventListener("click", function () {
+        popup.style.display = "none";
+      });
+    }
+  </script>
+
 </body>
 </html>
+
+
+

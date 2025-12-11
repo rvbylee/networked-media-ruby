@@ -11,9 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^2.2.0",
+    "@seald-io/nedb": "^4.1.2",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.1",
+    "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "multer": "^2.0.2"
+    "express-session": "^1.18.2",
+    "multer": "^2.0.2",
+    "nedb-promises-session-store": "^1.0.4"
   }
 }
